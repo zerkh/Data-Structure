@@ -1,0 +1,31 @@
+//左式堆
+
+#include <iostream>
+#include <cstdlib>
+using namesapce std;
+
+struct TreeNode;
+typedef struct TreeNode* PriorityQueue;
+typedef int ElemType;
+
+PriorityQueue Init();
+ElementType FindMin(PriorityQueue P);
+bool IsEmpty(PriorityQueue P);
+PriorityQueue Merge(PriorityQueue P1, PriorityQueue P2);
+PriorityQueue Merge1(PriorityQueue P1, PriorityQueue P2);
+void SwapChildren(priorityQueue P);
+
+//解决左式堆与二叉堆Insert的矛盾
+#define Insert(Elem, P) (P = Insert1(Elem, P))
+#define DeleteMin(PriorityQueue P) (P = DeleteMin1(P))
+
+PriorityQueue Insert1(ElemType Elem, PriorityQueue P);
+PriorityQueue DeleteMin1(PriorityQueue P);
+
+struct TreeNode
+{
+  Elemtype Element;
+  PriorityQueue Left, Right;
+  int Npl;
+};
+

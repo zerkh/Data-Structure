@@ -1,0 +1,11 @@
+//二叉堆的实现
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+typedef char ElemType;
+
+struct Heap;
+typedef struct Heap *PriorityQueue;
+
