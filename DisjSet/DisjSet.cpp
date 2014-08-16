@@ -1,3 +1,5 @@
+//不相交集 对于按秩合并的代码还有不解
+
 #include <iostream>
 #include <cstdlib>
 using namespace std;
