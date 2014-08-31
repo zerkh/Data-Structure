@@ -2,19 +2,18 @@
 #include <string.h>
 using namespace std;
 
-void get_next(char Mstr[], int next[])
+void get_next(char BeMat[], int next[])
 {
-  int i, j;
-  int Mlen;
-
+  int i, j, len;
+  
+  len = strlen(BeMat);
   i = 1;
   j = 0;
-  Mlen = strlen(Mstr);
   next[0] = 0;
-  
-  while(i < Mlen)
+
+  while(i < len)
     {
-      if(j == 0 || Mstr[i] == Mstr[j])
+      if(j == 0 || BeMat[i] == BeMat[j])
 	{
 	  next[i] = j;
 	  i++;
@@ -27,22 +26,22 @@ void get_next(char Mstr[], int next[])
     }
 }
 
-int KMP(char str[], char Mstr[], int pos)
+int KMP_Sort(char Mat[], char BeMat[], int pos)
 {
-  int i, j, len, Mlen;
+  int i, j, len, Belen;
   int next[255];
-
-  len = strlen(str);
-  Mlen = strlen(Mstr);
-  
-  get_next(Mstr, next);
 
   i = pos;
   j = 0;
 
-  while(i < len && j < Mlen)
+  len = strlen(Mat);
+  Belen = strlen(BeMat);
+
+  get_next(BeMat, next);
+
+  while(i < len && j < Belen)
     {
-      if(j == 0 || str[i] == Mstr[j])
+      if(j == 0 || Mat[i] == BeMat[j])
 	{
 	  i++;
 	  j++;
@@ -53,30 +52,31 @@ int KMP(char str[], char Mstr[], int pos)
 	}
     }
 
-  if(j >= Mlen)
+  if(j >= Belen)
     {
-      return i-Mlen+1;
+      return i-Belen+1;
     }
   else
-    return 0;
+    {
+      return 0;
+    }
 }
 
 int main()
 {
-  char str[100], Mstr[100];
+  char Mat[100], BeMat[100];
   int pos;
-  
-  cout << "str:";
-  cin >> str;
+
+  cout << "Mat:";
+  cin >> Mat;
   cout << endl;
-  cout << "Mstr:";
-  cin >> Mstr;
+  cout << "BeMat";
+  cin >> BeMat;
   cout << endl;
   cout << "pos:";
   cin >> pos;
   cout << endl;
-  
-  cout << KMP(str, Mstr, pos) << endl;
+  cout << KMP_Sort(Mat, BeMat, pos) << endl;
 
   return 0;
 }
