@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+using namesapce std;
+
+typedef int ElemType;
+typedef struct TreeNode
+{
+  struct TreeNode *Left, *Right;
+  int Npl;
+  ElemType Data;
+}*PriorityQueue;
+
+void Initialize(PriorityQueue &PQ);
+PriorityQueue Merge1(PriorityQueue PQ1, PriorityQueue PQ2);
+PriorityQueue Merge(PriorityQueue PQ1, PriorityQueue PQ2);
+PriorityQueue Insert1(PriorityQueue PQ, ElemType Data);
+PriorityQueue DeleteMin1(PriorityQueue PQ);
+ElemType FindMin(PriorityQueue PQ);
+#define Insert(PriorityQueue PQ, ElemType Data) (PQ = Insert1(PQ, Data))
+#define DeleteMin(PriorityQueue PQ) (PQ = DeleteMin1(PQ))
+
